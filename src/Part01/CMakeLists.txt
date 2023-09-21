@@ -3,6 +3,4 @@ project(This_Is_DS_Algorithm)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory(Ch00)
-add_subdirectory(Part01)
-
+add_subdirectory(Ch01)
