@@ -3,6 +3,12 @@
 //
 #include "../02-LinkedList/LinkedList.h"
 
+/*
+ * VITAMIN QUIZ 1-2
+ * void SLL_InsertBefore(Node** Head, Node* Current, Node* NewHead) 구현
+ * void SLL_DestroyAllNodes(Node** List); 구현
+ */
+
 void SLL_InsertBefore(Node** Head, Node* Current, Node* NewHead)
 {
 	if (*Head == NULL)
@@ -17,6 +23,20 @@ void SLL_InsertBefore(Node** Head, Node* Current, Node* NewHead)
 		}
 
 		NewHead->NextNode = Pointer->NextNode;
-		Pointer->NextNode = Current;
+		Pointer->NextNode = NewHead;
 	}
+}
+
+void SLL_DestroyAllNodes(Node** List) {
+	Node* Head = *List;
+	Node* Prev = NULL;
+
+	do {
+		Prev = Head;
+		Head = Head->NextNode;
+		free(Prev);
+	}
+	while (Head != NULL);
+
+	*List = NULL;
 }

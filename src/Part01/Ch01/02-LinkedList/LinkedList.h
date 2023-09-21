@@ -34,4 +34,6 @@ int SLL_GetNodeCount(Node* Head);
 
 void SLL_InsertBefore(Node** Head, Node* Current, Node* NewHead);
 
+void SLL_DestroyAllNodes(Node** List);
+
 #endif //THIS_IS_DS_ALGORITHM_LINKEDLIST_H
