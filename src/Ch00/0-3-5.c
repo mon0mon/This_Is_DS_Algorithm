@@ -6,12 +6,12 @@
 
 typedef struct tagPoint
 {
-	int x;
-	int y;
+    int x;
+    int y;
 } Point;
 
 int main()
 {
-	Point *ptr = (Point*)malloc(sizeof(Point));
-	free(ptr);
+    Point* ptr = (Point*)malloc(sizeof(Point));
+    free(ptr);
 }

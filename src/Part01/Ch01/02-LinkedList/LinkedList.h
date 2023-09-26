@@ -12,8 +12,8 @@ typedef int ElementType;
 
 typedef struct tagNode
 {
-	ElementType Data;
-	struct tagNode* NextNode;
+    ElementType Data;
+    struct tagNode* NextNode;
 } Node;
 
 Node* SLL_CreateNode(ElementType NewData);

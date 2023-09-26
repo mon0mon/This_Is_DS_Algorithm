@@ -3,18 +3,19 @@
 //
 #include <stdio.h>
 
-int main() {
-    int* ptr = (int *) 0xFF000000;
+int main()
+{
+    int* ptr = (int*)0xFF000000;
 
     int a = 123;
     ptr = &a;
 
-    ptr = (int *) 0x1004;
+    ptr = (int*)0x1004;
     printf("%X\n", ptr);
     printf("%X\n", --ptr);
     printf("%X\n", ++ptr);
 
-    int arr[5] = {0, 1, 2, 3, 4};
+    int arr[5] = { 0, 1, 2, 3, 4 };
     ptr = arr;
 
     printf("%s\n", ptr == arr ? "true" : "false");

@@ -12,9 +12,9 @@ typedef int ElementType;
 
 typedef struct TagNode
 {
-	ElementType data;
-	struct TagNode* prev_node;
-	struct TagNode* next_node;
+    ElementType data;
+    struct TagNode* prev_node;
+    struct TagNode* next_node;
 } Node;
 
 Node* CDLL_CreateNode(ElementType new_data);
