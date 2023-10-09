@@ -21,7 +21,7 @@ int main()
     for (int i = 0; i < count; ++i)
     {
         current = CDLL_GetNodeAt(list, i);
-        printf("List[%d] : %d\n", i, current->data);
+        printf("list[%d] : %d\n", i, current->data);
     }
 
     printf("\nInserting 3000 After [2]...\n\n");
@@ -41,7 +41,7 @@ int main()
             current = current->next_node;
         }
 
-        printf("List[%d] : %d\n", i, current->data);
+        printf("list[%d] : %d\n", i, current->data);
     }
 
     printf("\nRemoving Node at 2...\n");
@@ -61,10 +61,10 @@ int main()
             current = current->next_node;
         }
 
-        printf("List[%d] : %d\n", i, current->data);
+        printf("list[%d] : %d\n", i, current->data);
     }
 
-    printf("\nDestroying List...\n");
+    printf("\nDestroying list...\n");
     count = CDLL_GetNodeCount(list);
 
     for (int i = 0; i < count; ++i)

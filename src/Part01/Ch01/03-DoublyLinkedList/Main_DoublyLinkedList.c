@@ -6,10 +6,10 @@
 
 int main()
 {
-    int Count = 0;
+    int count = 0;
     Node* List = NULL;
     Node* NewNode = NULL;
-    Node* Current = NULL;
+    Node* current = NULL;
 
     for (int i = 0; i < 5; ++i)
     {
@@ -17,41 +17,41 @@ int main()
         DLL_AppendNode(&List, NewNode);
     }
 
-    Count = DLL_GetNodeCount(List);
+    count = DLL_GetNodeCount(List);
 
-    for (int i = 0; i < Count; ++i)
+    for (int i = 0; i < count; ++i)
     {
-        Current = DLL_GetNodeAt(List, i);
-        printf("List[%d] : %d\n", i, Current->Data);
+        current = DLL_GetNodeAt(List, i);
+        printf("list[%d] : %d\n", i, current->data);
     }
 
     printf("\nInserting 3000 After [2]...\n");
 
-    Current = DLL_GetNodeAt(List, 2);
+    current = DLL_GetNodeAt(List, 2);
     NewNode = DLL_CreateNode(3000);
-    DLL_InsertAfter(Current, NewNode);
+    DLL_InsertAfter(current, NewNode);
 
-    Count = DLL_GetNodeCount(List);
-    for (int i = 0; i < Count; ++i)
+    count = DLL_GetNodeCount(List);
+    for (int i = 0; i < count; ++i)
     {
-        Current = DLL_GetNodeAt(List, i);
-        printf("List[%d] : %d\n", i, Current->Data);
+        current = DLL_GetNodeAt(List, i);
+        printf("List[%d] : %d\n", i, current->data);
     }
 
     printf("\n");
     PrintReverse(List);
 
-    printf("\nDestroying List...\n");
-    Count = DLL_GetNodeCount(List);
+    printf("\nDestroying list...\n");
+    count = DLL_GetNodeCount(List);
 
-    for (int i = 0; i < Count; ++i)
+    for (int i = 0; i < count; ++i)
     {
-        Current = DLL_GetNodeAt(List, 0);
+        current = DLL_GetNodeAt(List, 0);
 
-        if (Current != NULL)
+        if (current != NULL)
         {
-            DLL_RemoveNode(&List, Current);
-            DLL_DestroyNode(Current);
+            DLL_RemoveNode(&List, current);
+            DLL_DestroyNode(current);
         }
     }
 

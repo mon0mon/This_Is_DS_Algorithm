@@ -5,132 +5,132 @@
 #include "DoublyLinkedList.h"
 
 
-Node* DLL_CreateNode(ElementType NewData)
+Node* DLL_CreateNode(ElementType newData)
 {
-    Node* NewNode = (Node*)malloc(sizeof(Node));
+    Node* new_node = (Node*)malloc(sizeof(Node));
 
-    NewNode->Data = NewData;
-    NewNode->NextNode = NULL;
-    NewNode->PrevNode = NULL;
+    new_node->data = newData;
+    new_node->next_node = NULL;
+    new_node->prev_node = NULL;
 
-    return NewNode;
+    return new_node;
 }
 
-void DLL_DestroyNode(Node* Node)
+void DLL_DestroyNode(Node* node)
 {
-    free(Node);
+    free(node);
 }
 
-void DLL_AppendNode(Node** Head, Node* NewNode)
+void DLL_AppendNode(Node** head, Node* new_node)
 {
-    if (*Head == NULL)
+    if (*head == NULL)
     {
-        *Head = NewNode;
+        *head = new_node;
     }
     else
     {
-        Node* Pointer = *(Head);
+        Node* pointer = *(head);
 
-        while (Pointer->NextNode != NULL)
+        while (pointer->next_node != NULL)
         {
-            Pointer = Pointer->NextNode;
+            pointer = pointer->next_node;
         }
 
-        Pointer->NextNode = NewNode;
-        NewNode->PrevNode = Pointer;
+        pointer->next_node = new_node;
+        new_node->prev_node = pointer;
     }
 }
 
-void DLL_InsertAfter(Node* Current, Node* NewNode)
+void DLL_InsertAfter(Node* current, Node* new_node)
 {
-    NewNode->NextNode = Current->NextNode;
-    NewNode->PrevNode = Current;
+    new_node->next_node = current->next_node;
+    new_node->prev_node = current;
 
-    if (Current->NextNode != NULL)
+    if (current->next_node != NULL)
     {
-        Current->NextNode->PrevNode = NewNode;
-        Current->NextNode = NewNode;
+        current->next_node->prev_node = new_node;
+        current->next_node = new_node;
     }
 }
 
-void DLL_RemoveNode(Node** Head, Node* Remove)
+void DLL_RemoveNode(Node** head, Node* remove)
 {
-    if (*Head == Remove)
+    if (*head == remove)
     {
-        if (*Head == NULL)
+        if (*head == NULL)
         {
             return;
         }
 
-        if (Remove->NextNode != NULL)
+        if (remove->next_node != NULL)
         {
-            Remove->NextNode->PrevNode = NULL;
+            remove->next_node->prev_node = NULL;
         }
 
-        *Head = Remove->NextNode;
+        *head = remove->next_node;
 
-        Remove->NextNode = NULL;
-//		DLL_DestroyNode(Remove);
+        remove->next_node = NULL;
+//		DLL_DestroyNode(remove);
     }
     else
     {
-        Node* Pointer = *Head;
+        Node* pointer = *head;
 
-        while (Pointer->NextNode != Remove)
+        while (pointer->next_node != remove)
         {
-            Pointer = Pointer->NextNode;
+            pointer = pointer->next_node;
         }
 
-        Remove->NextNode->PrevNode = Pointer;
-        Pointer->NextNode = Remove->NextNode;
+        remove->next_node->prev_node = pointer;
+        pointer->next_node = remove->next_node;
 
-        Remove->PrevNode = NULL;
-        Remove->NextNode = NULL;
+        remove->prev_node = NULL;
+        remove->next_node = NULL;
 
-//		DLL_DestroyNode(Remove);
+//		DLL_DestroyNode(remove);
     }
 }
 
-Node* DLL_GetNodeAt(Node* Head, int Location)
+Node* DLL_GetNodeAt(Node* head, int location)
 {
-    Node* Pointer = Head;
+    Node* pointer = head;
 
-    while (Pointer != NULL && (Location--) > 0)
+    while (pointer != NULL && (location--) > 0)
     {
-        Pointer = Pointer->NextNode;
+        pointer = pointer->next_node;
     }
 
-    return Pointer;
+    return pointer;
 }
 
-int DLL_GetNodeCount(Node* Head)
+int DLL_GetNodeCount(Node* head)
 {
     unsigned int count = 0;
-    Node* Pointer = Head;
+    Node* pointer = head;
 
-    while (Pointer != NULL)
+    while (pointer != NULL)
     {
         count++;
-        Pointer = Pointer->NextNode;
+        pointer = pointer->next_node;
     }
 
     return count;
 }
 
-void PrintReverse(Node* Head)
+void PrintReverse(Node* head)
 {
-    Node* Pointer = Head;
+    Node* pointer = head;
 
-    while (Pointer->NextNode != NULL)
+    while (pointer->next_node != NULL)
     {
-        Pointer = Pointer->NextNode;
+        pointer = pointer->next_node;
     }
 
     printf("Print Nodes Reverse\n");
-    int Count = DLL_GetNodeCount(Head);
+    int count = DLL_GetNodeCount(head);
     do
     {
-        printf("List[%d] : %d\n", --Count, Pointer->Data);
-        Pointer = Pointer->PrevNode;
-    } while (Pointer != NULL);
+        printf("list[%d] : %d\n", --count, pointer->data);
+        pointer = pointer->prev_node;
+    } while (pointer != NULL);
 }

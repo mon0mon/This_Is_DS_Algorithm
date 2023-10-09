@@ -4,134 +4,134 @@
 
 #include "LinkedList.h"
 
-Node* SLL_CreateNode(ElementType NewData)
+Node* SLL_CreateNode(ElementType new_data)
 {
-    Node* NewNode = (Node*)malloc(sizeof(Node));
+    Node* new_node = (Node*)malloc(sizeof(Node));
 
-    NewNode->Data = NewData;
-    NewNode->NextNode = NULL;
+    new_node->data = new_data;
+    new_node->next_node = NULL;
 
-    return NewNode;
+    return new_node;
 }
 
-void SLL_DestroyNode(Node* Node)
+void SLL_DestroyNode(Node* node)
 {
-    free(Node);
+    free(node);
 }
 
-void SLL_AppendNode(Node** Head, Node* NewNode)
+void SLL_AppendNode(Node** head, Node* new_node)
 {
-    if ((*Head) == NULL)
+    if ((*head) == NULL)
     {
-        *Head = NewNode;
+        *head = new_node;
     }
     else
     {
-        Node* Tail = (*Head);
-        while (Tail->NextNode != NULL)
+        Node* tail = (*head);
+        while (tail->next_node != NULL)
         {
-            Tail = Tail->NextNode;
+            tail = tail->next_node;
         }
-        Tail->NextNode = NewNode;
+        tail->next_node = new_node;
     }
 }
 
-void SLL_InsertAfter(Node* Current, Node* NewNode)
+void SLL_InsertAfter(Node* current, Node* new_node)
 {
-    NewNode->NextNode = Current->NextNode;
-    Current->NextNode = NewNode;
+    new_node->next_node = current->next_node;
+    current->next_node = new_node;
 }
 
-void SLL_InsertNewHead(Node** Head, Node* NewHead)
+void SLL_InsertNewHead(Node** head, Node* new_head)
 {
-    if (*Head == NULL)
+    if (*head == NULL)
     {
-        (*Head) = NewHead;
+        (*head) = new_head;
     }
     else
     {
-        NewHead->NextNode = (*Head);
-        (*Head) = NewHead;
+        new_head->next_node = (*head);
+        (*head) = new_head;
     }
 }
 
-void SLL_RemoveNode(Node** Head, Node* Remove)
+void SLL_RemoveNode(Node** head, Node* remove)
 {
-    if (*Head == Remove)
+    if (*head == remove)
     {
-        *Head = Remove->NextNode;
+        *head = remove->next_node;
     }
     else
     {
-        Node* Current = *Head;
-        while (Current != NULL && Current->NextNode != Remove)
+        Node* current = *head;
+        while (current != NULL && current->next_node != remove)
         {
-            Current = Current->NextNode;
+            current = current->next_node;
         }
 
-        if (Current != NULL)
+        if (current != NULL)
         {
-            Current->NextNode = Remove->NextNode;
+            current->next_node = remove->next_node;
         }
     }
 }
 
-Node* SLL_GetNodeAt(Node* Head, int Location)
+Node* SLL_GetNodeAt(Node* head, int location)
 {
-    Node* Current = Head;
+    Node* current = head;
 
-    while (Current != NULL && (--Location) >= 0)
+    while (current != NULL && (--location) >= 0)
     {
-        Current = Current->NextNode;
+        current = current->next_node;
     }
 
-    return Current;
+    return current;
 }
 
-int SLL_GetNodeCount(Node* Head)
+int SLL_GetNodeCount(Node* head)
 {
-    int Count = 0;
-    Node* Current = Head;
+    int count = 0;
+    Node* current = head;
 
-    while (Current != NULL)
+    while (current != NULL)
     {
-        Current = Current->NextNode;
-        Count++;
+        current = current->next_node;
+        count++;
     }
 
-    return Count;
+    return count;
 }
 
-void SLL_InsertBefore(Node** Head, Node* Current, Node* NewHead)
+void SLL_InsertBefore(Node** head, Node* current, Node* new_head)
 {
-    if (*Head == NULL)
+    if (*head == NULL)
     {
-        *Head = NewHead;
+        *head = new_head;
     }
     else
     {
-        Node* Pointer = (*Head);
-        while (Pointer->NextNode != NULL && Pointer->NextNode != Current)
+        Node* pointer = (*head);
+        while (pointer->next_node != NULL && pointer->next_node != current)
         {
-            Pointer = Pointer->NextNode;
+            pointer = pointer->next_node;
         }
 
-        NewHead->NextNode = Pointer->NextNode;
-        Pointer->NextNode = NewHead;
+        new_head->next_node = pointer->next_node;
+        pointer->next_node = new_head;
     }
 }
 
-void SLL_DestroyAllNodes(Node** List)
+void SLL_DestroyAllNodes(Node** list)
 {
-    Node* Head = *List;
-    Node* Prev = NULL;
+    Node* head = *list;
+    Node* prev = NULL;
 
     do
     {
-        Prev = Head;
-        Head = Head->NextNode;
-        free(Prev);
-    } while (Head != NULL);
+        prev = head;
+        head = head->next_node;
+        free(prev);
+    } while (head != NULL);
 
-    *List = NULL;
+    *list = NULL;
 }

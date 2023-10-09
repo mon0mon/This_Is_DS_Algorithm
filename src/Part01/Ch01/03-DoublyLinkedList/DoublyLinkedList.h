@@ -12,25 +12,25 @@ typedef int ElementType;
 
 typedef struct tagNode
 {
-    ElementType Data;
-    struct tagNode* PrevNode;
-    struct tagNode* NextNode;
+    ElementType data;
+    struct tagNode* prev_node;
+    struct tagNode* next_node;
 } Node;
 
-Node* DLL_CreateNode(ElementType NewData);
+Node* DLL_CreateNode(ElementType new_data);
 
-void DLL_DestroyNode(Node* Node);
+void DLL_DestroyNode(Node* node);
 
-void DLL_AppendNode(Node** Head, Node* NewNode);
+void DLL_AppendNode(Node** head, Node* new_node);
 
-void DLL_InsertAfter(Node* Current, Node* NewNode);
+void DLL_InsertAfter(Node* current, Node* new_node);
 
-void DLL_RemoveNode(Node** Head, Node* Remove);
+void DLL_RemoveNode(Node** head, Node* remove);
 
-Node* DLL_GetNodeAt(Node* Head, int Location);
+Node* DLL_GetNodeAt(Node* head, int location);
 
-int DLL_GetNodeCount(Node* Head);
+int DLL_GetNodeCount(Node* head);
 
-void PrintReverse(Node* Head);
+void PrintReverse(Node* head);
 
 #endif //THIS_IS_DS_ALGORITHM_DOUBLYLINKEDLIST_H
