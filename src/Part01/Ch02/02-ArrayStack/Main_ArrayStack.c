@@ -15,7 +15,7 @@ int main()
     AS_Push(stack, 11);
     AS_Push(stack, 12);
 
-    printf("Capacity: %d, Size: %d, Top: %d\n\n",
+    printf("Capacity: %d, Size: %d, top: %d\n\n",
             stack->capacity, AS_GetSize(stack), AS_Top(stack));
 
     for (int i = 0; i < 4; ++i)
@@ -27,7 +27,7 @@ int main()
         printf("Popped: %d, ", AS_Pop(stack));
 
         if (!AS_IsEmpty(stack)) {
-            printf("Current Top: %d\n", AS_Top(stack));
+            printf("Current top: %d\n", AS_Top(stack));
         } else {
             printf("Stack Is Empty.\n");
         }

@@ -39,4 +39,6 @@ bool AS_IsEmpty(ArrayStack* stack);
 
 bool AS_IsFull(ArrayStack* stack);
 
+bool AS_CheckLowUsages(ArrayStack* stack);
+
 #endif //THIS_IS_DS_ALGORITHM_ARRAYSTACK_H

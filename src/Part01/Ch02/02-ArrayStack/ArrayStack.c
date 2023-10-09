@@ -41,8 +41,17 @@ bool AS_IsFull(ArrayStack* stack)
 
 ElementType AS_Pop(ArrayStack* stack)
 {
-    if (stack->top < -1) {
+    if (stack->top < -1)
+    {
         return -100;
+    }
+
+    if (AS_CheckLowUsages(stack))
+    {
+        //  내부에 realloc으로 메모리를 옮기고
+        //  데이터를 추가하는 방식으로 구현하기
+        stack->nodes = (Node*)realloc(stack->nodes, stack->capacity * 0.7);
+        stack->capacity = stack->capacity * 0.7;
     }
 
     int position = stack->top--;
@@ -53,7 +62,8 @@ ElementType AS_Pop(ArrayStack* stack)
 
 ElementType AS_Top(ArrayStack* stack)
 {
-    if (stack->top < -1) {
+    if (stack->top < -1)
+    {
         return -100;
     }
 
@@ -68,4 +78,9 @@ int AS_GetSize(ArrayStack* stack)
 bool AS_IsEmpty(ArrayStack* stack)
 {
     return stack->top == -1;
+}
+
+bool AS_CheckLowUsages(ArrayStack* stack)
+{
+    return stack->capacity * 0.7 >= AS_GetSize(stack);
 }

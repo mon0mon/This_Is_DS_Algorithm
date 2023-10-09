@@ -3,4 +3,4 @@ project(This_Is_DS_Algorithm)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(02-ArrayStack ArrayStack.h ArrayStack.c Main_ArrayStack.c)
+add_executable(02-02-ArrayStack ArrayStack.h ArrayStack.c Main_ArrayStack.c)
