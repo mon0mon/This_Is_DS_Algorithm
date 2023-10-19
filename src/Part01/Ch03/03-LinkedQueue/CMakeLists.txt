@@ -3,5 +3,4 @@ project(This_Is_DS_Algorithm)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory(02-CircularQueue)
-add_subdirectory(03-LinkedQueue)
+add_executable(03-03-LinkedQueue Main_LinkedQueue.c LinkedQueue.h LinkedQueue.c)
