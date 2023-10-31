@@ -5,3 +5,5 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_subdirectory(02-BubbleSort)
 add_subdirectory(03-InsertionSort)
+add_subdirectory(04-QuickSort)
+add_subdirectory(05-QuickSort2)
